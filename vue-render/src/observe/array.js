@@ -31,7 +31,7 @@ methods.forEach(method => {
             default:
                 break;
         }
-        // console.log(inserted); // 新增的内容
+        console.log(inserted); // 新增的内容
         if(inserted) {
             // 对新增的内容再次进行观测  
             ob.observeArray(inserted);

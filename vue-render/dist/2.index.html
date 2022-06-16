@@ -7,6 +7,10 @@
   <title>Document</title>
 </head>
 <body>
+  <div id="app">
+    <div style="color: red;">{{name}} hello </div>
+    <span>{{age}}</span>
+  </div>
   <script src="vue.js"></script>
   <script>
     // 响应式的数据变化，数据变化了我们可以监听到数据的变化
@@ -23,9 +27,15 @@
           habits: ['eat', 'drink']
         }
       }
+      // el: '#app' // 要将数据解析到 el 元素上 || 不写 el 手动挂载 mounted
+      //  template || render 
     })
-    console.log(vm.age)
-    vm.habits.push('2')
+    vm.$mount('#app')
+    // 1.模板引擎 性能差 需要正则匹配替换 1.0 没有引入 虚拟DOM改变
+    // 2.采用虚拟DOM，数据变化后比较虚拟DOM的差异 最后更新需要更新的地方
+    // 3.核心要将 模板变成我们的 js 通过 js 语法生成虚拟 DOM
+
+    // 首先要变成语法树再重新组装代码成为新的语法  目标将 template 转换为 render
   </script>
 </body>
 </html>
